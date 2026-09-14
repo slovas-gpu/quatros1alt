@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>quatros1</title>
+        <style>
+            body {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0;
+                min-height: 100vh;
+                padding: 24px;
+                text-align: center;
+            }
+
+            form {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                max-width: 420px;
+                width: 100%;
+            }
+
+            input {
+                box-sizing: border-box;
+                font-size: 1.1rem;
+                padding: 12px;
+                width: 100%;
+            }
+
+            button {
+                background-color: #1769e0;
+                border: 0;
+                border-radius: 6px;
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 1.1rem;
+                font-weight: 700;
+                min-height: 52px;
+                padding: 12px 32px;
+                width: 100%;
+            }
+
+            button:hover {
+                background-color: #0f4fae;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Firewall</h1>
+        <p>Got here by accident? Do not worry. Quatros1 will redirect you to the PaliServer1 Portal shortly.</p>
+        <p>Enter the cryptographic key in the field before to proceed.</p>
+        <form id="access-form">
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" required>
+            <button type="submit">Continue</button>
+            <p id="error-message" role="alert" hidden>Incorrect password.</p>
+        </form>
+
+        <script>
+            document.getElementById('access-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                if (document.getElementById('password').value === 'Pali says opensesame') {
+                    window.location.href = 'subnet.html';
+                    return;
+                }
+
+                document.getElementById('error-message').hidden = false;
+            });
+        </script>
+    </body>
+</html>
